@@ -64,7 +64,14 @@ class Credentials:
         '''
 
         Credentials.credentials_list.append(self)
+    
+    def delete_credentials(self):
+        '''
+        method for deleting existing credentials
+        '''
 
+        Credentials.credentials_list.remove(self)
+        
     @classmethod
     def view_credentials(cls):
         '''
@@ -79,7 +86,6 @@ class Credentials:
         method that takes in the name of an application and returns the credentials
         of the particular application if its credentials have been created by the user
         
-        searches for existing platforms
         '''
 
         for application in cls.credentials_list:
