@@ -87,7 +87,23 @@ class TestCredentials(unittest.TestCase):
 
         self.new_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_list), 1)
+    
+    def test_save_multiple_credentials(self):
+        '''
+        method to test if multiple user credentials can be saved
+        '''
 
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Twitter", "jdoe", "twitter123")
+        test_credentials.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),2)
+
+    def test_view_credentials(self):
+        '''
+        method that returns all saved credentials
+        '''
+
+        self.assertEqual(Credentials.view_credentials(), Credentials.credentials_list)
 
 print("hello")
 if __name__ ==  '__main__':
