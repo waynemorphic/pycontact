@@ -1,4 +1,5 @@
 from password_generator import PasswordGenerator
+# https://pypi.org/project/random-password-generator/
 
 # The user class will contain the user details after they create an account in the password locker application
 class User:
@@ -96,18 +97,18 @@ class Credentials:
         # returns the application that matches the name if the platform entered by the user
     
     @classmethod
-    def generate_password(cls):
+    def generate_password(cls, password):
         '''
         function to generate a random password for the user
         '''
 
         for passwrd in cls.credentials_list:
             if passwrd.password == ' ':
-                pwd = PasswordGenerator()
+                password = PasswordGenerator()
                 '''
                 pwd is a variable equated to the imported module
                 '''
-                return pwd
+                return password
         
         # logic here returns a random password for the user if password is empty
         
