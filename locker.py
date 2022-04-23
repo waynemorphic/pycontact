@@ -1,3 +1,5 @@
+from password_generator import PasswordGenerator
+
 # The user class will contain the user details after they create an account in the password locker application
 class User:
     '''
@@ -71,7 +73,7 @@ class Credentials:
         '''
 
         Credentials.credentials_list.remove(self)
-        
+
     @classmethod
     def view_credentials(cls):
         '''
@@ -85,7 +87,6 @@ class Credentials:
         '''
         method that takes in the name of an application and returns the credentials
         of the particular application if its credentials have been created by the user
-        
         '''
 
         for application in cls.credentials_list:
@@ -93,4 +94,22 @@ class Credentials:
                 return application
         # application is a variable in the credentials_list
         # returns the application that matches the name if the platform entered by the user
+    
+    @classmethod
+    def generate_password(cls):
+        '''
+        function to generate a random password for the user
+        '''
+
+        for passwrd in cls.credentials_list:
+            if passwrd.password == ' ':
+                pwd = PasswordGenerator()
+                '''
+                pwd is a variable equated to the imported module
+                '''
+                return pwd
+        
+        # logic here returns a random password for the user if password is empty
+        
+
     

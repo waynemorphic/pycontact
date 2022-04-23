@@ -1,6 +1,8 @@
+from pyrfc3339 import generate
 from locker import User
 import unittest
 from locker import Credentials
+from password_generator import PasswordGenerator
 
 # Testig the cases for the User class
 class Testuser (unittest.TestCase):
@@ -134,6 +136,15 @@ class TestCredentials(unittest.TestCase):
         found_platform = Credentials.search_platform("Twitter")
         self.assertEqual(found_platform.platform, test_credentials.platform)
 
-print("hello")
+#     def test_generate_password(self):
+
+#         self.new_credentials.save_credentials()
+#         test_credentials = Credentials("Twitter", "jdoe", " ")
+#         test_credentials.save_credentials()
+
+#         generated_password = Credentials.generate_password("")
+#         self.assertEqual(generated_password.password)
+
+# print("hello")
 if __name__ ==  '__main__':
     unittest.main()
