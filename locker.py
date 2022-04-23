@@ -63,4 +63,12 @@ class Credentials:
 
         Credentials.credentials_list.append(self)
 
+    @classmethod
+    def view_credentials(cls):
+        '''
+        method for displaying various credentials to the user
+        '''
+
+        return cls.credentials_list
+    
     
