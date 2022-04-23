@@ -47,6 +47,8 @@ class Credentials:
     def __init__(self, platform, username, password):
         '''
         constructor to generate new credentials per platform
+
+        Takes in the name of the application, the username and password
         '''
 
         self.platform = platform
@@ -71,4 +73,15 @@ class Credentials:
 
         return cls.credentials_list
     
+    @classmethod
+    def search_platform(cls, platform):
+        '''
+        method that takes in the name of an application and returns the credentials
+        of the particular application if its credentials have been created by the user'''
+
+        for application in cls.credentials_list:
+            if application.platform == platform:
+                return application
+        # application is a variable in the credentials_list
+        # returns the application that matches the name if the platform entered by the user
     
