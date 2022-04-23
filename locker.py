@@ -77,7 +77,10 @@ class Credentials:
     def search_platform(cls, platform):
         '''
         method that takes in the name of an application and returns the credentials
-        of the particular application if its credentials have been created by the user'''
+        of the particular application if its credentials have been created by the user
+        
+        searches for existing platforms
+        '''
 
         for application in cls.credentials_list:
             if application.platform == platform:
