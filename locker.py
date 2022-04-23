@@ -1,3 +1,4 @@
+# The user class will contain the user details after they create an account in the password locker application
 class User:
     '''
     Defines the user details. 
@@ -27,3 +28,39 @@ class User:
         method to save user details
         '''
         User.user_list.append(self)
+
+# The credentials class will contain the credentials (username and passwords) 
+# of the user from various platforms. It will also generate new passwords automatically.
+# Objective is to store generic username and password for existing platforms and create new credintials
+# for new accounts using user passwords or automatically generated passwords
+
+class Credentials:
+    '''
+    credentials class that stores user credentials from various platforms
+    '''
+
+    credentials_list = []
+    '''
+    empty list to store credentials
+    '''
+
+    def __init__(self, platform, username, password):
+        '''
+        constructor to generate new credentials per platform
+        '''
+
+        self.platform = platform
+        self.username = username
+        self.password = password
+        '''
+        new class variable instances
+        '''
+
+    def save_credentials(self):
+        '''
+        method to save the credentials
+        '''
+
+        Credentials.credentials_list.append(self)
+
+    
