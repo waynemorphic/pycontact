@@ -148,6 +148,18 @@ class TestCredentials(unittest.TestCase):
         found_platform = Credentials.search_platform("Twitter")
         self.assertEqual(found_platform.platform, test_credentials.platform)
 
+## Sixth case to check for existing platforms with registered credentials
+    def test_existing_platform(self):
+        '''
+        case to ascertain whether platforms have been entered in the application'''
+
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Twitter", "jdoe", "twitter123")
+        test_credentials.save_credentials()
+
+        available_platform = Credentials.existing_platform("Twitter")
+        self.assertTrue(available_platform)
+
 #     def test_generate_password(self):
 
 #         self.new_credentials.save_credentials()
