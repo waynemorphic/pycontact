@@ -32,6 +32,19 @@ class User:
         '''
         User.user_list.append(self)
 
+    @classmethod
+    def authenticate_user(self, account_username, account_password):
+        '''
+        method to authenticate existing user details
+        '''
+
+        for user in User.user_list:
+            if user.account_username == account_username and user.account_password == account_password:
+                return True
+            
+        return False
+
+
 # The credentials class will contain the credentials (username and passwords) 
 # of the user from various platforms. It will also generate new passwords automatically.
 # Objective is to store generic username and password for existing platforms and create new credintials
