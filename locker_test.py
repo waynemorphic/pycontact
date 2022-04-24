@@ -51,6 +51,18 @@ class Testuser (unittest.TestCase):
         self.new_user.save_user_details()
         self.assertEqual(len(User.user_list),1)
 
+## Third case to test authentication method
+    def test_authentication(self):
+        '''
+        case to authenticate existing user details
+        '''
+        self.new_user.save_user_details()
+        test_user_details = User("Don", "Dada", "Ddada", "123")
+        test_user_details.save_user_details()
+
+        user_exists = User.authenticate_user("Ddada", "123")
+        self.assertTrue(user_exists)
+
 ## Credentials class
 class TestCredentials(unittest.TestCase):
     '''
